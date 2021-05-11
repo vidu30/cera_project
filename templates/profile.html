@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"/>
+    <link rel="stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/switch.css') }}">
+</head>
+<body>
+    <section class="hero is-primary is-fullheight">
+
+        <div class="hero">
+            <nav class="navbar">
+                <div class="container">
+
+                    <div id="navbarMenuHeroA" class="navbar-menu">
+                        <div class="topnav">
+                            <a href="{{ url_for('home') }}" class="navbar-item">
+                                Home
+                            </a>
+                            <a href="{{ url_for('profile') }}" class="navbar-item">
+                                Profile
+                            </a>
+                            <a href="{{ url_for('login') }}" class="navbar-item">
+                                Login
+                            </a>
+                            <a href="{{ url_for('signup') }}" class="navbar-item">
+                                Sign Up
+                            </a>
+                            <div class="topnav-right">
+                            <a href="{{ url_for('logout') }}" class="navbar-item">
+                                Logout
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        
+    </section>
+</body>
+
+<body>
+    <div class="all">
+  <div class="main">
+
+{% block content %}
+<h1 class="title">
+
+  Welcome, {{name}} !
+  
+</h1>
+{% endblock %}
+
+    <div style="width:100px; margin:0 auto;">  
+        <a href=vmd_timestamp ><button class=grey style="font-size: 50px;">Birthday!!!</button></a></p>
+       
+      </div>         
+  </div>
+  
+
+  <div class="choose">
+    <div class="colors active">
+      <div class="theme">
+      
+        <ul class="themes-colors">
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+      </div>
+       
+    </div>
+    <span class="themes-btn active" ><i class="fas fa-cog fa-lg fa-spin "></i></span>
+  </div>
+  
+</div>
+
+
+        
+        
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+    $(document).ready(function () {
+	
+	$('span').click(function () {
+		
+		$('.colors, span').toggleClass('active');
+		
+	});
+	
+	
+	$('ul.themes-colors li').click(function () {
+		
+		$('body').css('background', $(this).css('color'));
+		
+	});
+	
+	$('ul.text-colors li').click(function () {
+		
+		$('h3, h1').css('color', $(this).css('color'));
+		
+	});
+	
+	
+});
+
+    </script>    
+</body>
+</html>

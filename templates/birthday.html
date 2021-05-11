@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Countdown Timer</title>
+  <link rel="stylesheet"  type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">  
+</head>
+
+<body>
+  <div class="countdown-timer">
+    <h1 class="greet">Timer To Your Next Birthday 🎂</h1>
+    <ul>
+      <li>
+        <span class="days"></span>
+        <span>DAYS</span>
+      </li>
+      <li>
+        <span class="hours"></span>
+        <span>HOURS</span>
+      </li>
+      <li>
+        <span class="minutes"></span>
+        <span>MINUTES</span>
+      </li>
+      <li>
+        <span class="seconds"></span>
+        <span>SECONDS</span>
+      </li>
+    </ul>
+    <p class="coming-year"></p>
+  </div>
+  <script >
+const comingYear = document.querySelector(".coming-year");
+const birthDate = prompt("Enter birth date (1-31):");
+const birthMonth = prompt("Enter birth month (1-12):");
+const today = new Date();
+var nextYear;
+if (today.getMonth() + 1 > birthMonth || (today.getMonth() + 1 == birthMonth && today.getDate() + 1 > birthDate)) {
+  nextYear = new Date().getFullYear() + 1;
+}
+else {
+  nextYear = new Date().getFullYear();
+}
+comingYear.innerHTML = nextYear;
+function countdown() {
+  const remaining = new Date(`${nextYear}-${birthMonth}-${birthDate} 00:00:00`) - new Date();
+  const days = Math.floor(remaining / (1000 * 60 * 60 * 24));
+  const hours = Math.floor(remaining / (1000 * 60 * 60)) % 24;
+  const minutes = Math.floor(remaining / (1000 * 60)) % 60;
+  const seconds = Math.floor(remaining / 1000) % 60;
+  document.querySelector(".days").innerHTML = days;
+  document.querySelector(".hours").innerHTML = hours;
+  document.querySelector(".minutes").innerHTML = minutes;
+  document.querySelector(".seconds").innerHTML = seconds;
+}
+countdown()
+setInterval(countdown, 1000);
+  </script>
+</body>
+
+</html>
